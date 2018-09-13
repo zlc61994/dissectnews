@@ -4,6 +4,14 @@ public class VO {
     News news;
     User user;
 
+    public VO() {
+    }
+
+    public VO(News news, User user) {
+        this.news = news;
+        this.user = user;
+    }
+
     public News getNews() {
         return news;
     }

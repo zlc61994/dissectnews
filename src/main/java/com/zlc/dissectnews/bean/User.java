@@ -5,18 +5,18 @@ import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Size;
 
 public class User {
-    String id;
+    Integer id;
     @Email(message = "邮箱格式错误")
     String username;
     @Size(min = 6,max = 8,message = "密码长度应该在6-8位")
     String password;
     String headUrl;//保存头像地址
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

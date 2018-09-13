@@ -4,6 +4,7 @@ import com.zlc.dissectnews.bean.User;
 import com.zlc.dissectnews.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -81,10 +82,9 @@ public class UserController {
     }
 
     @RequestMapping("/user/{id}")
-    public String  personal(@PathVariable int id,HttpServletRequest request){
+    public String  personal(@PathVariable int id, Model model){
       User user = userService.findUserById(id);
-      request.setAttribute("user",user);
-
+     model.addAttribute("user",user);
       return "/personal";
     }
 }
