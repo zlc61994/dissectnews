@@ -12,4 +12,10 @@ public interface NewsService {
     public List<News> findAllNews();
 
     News findNewsById(int id);
+
+    boolean addLikeCount(Integer newsId, Integer id);
+
+    boolean addDislikeCount(Integer newsId, Integer id);
+
+    boolean updateLikeCount(Integer newsId, int likecount);
 }

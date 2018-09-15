@@ -1,10 +1,7 @@
 package com.zlc.dissectnews.dao;
 
 import com.zlc.dissectnews.bean.News;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -14,11 +11,18 @@ public interface NewsDao {
     @Insert("insert into news values(null,#{news.title},#{news.link}," +
             "#{news.likeCount},#{news.commentCount}," +
             "#{news.createdDate},#{news.image},#{news.uid})")
-    public int addNews(@Param("news") News news);
+     int addNews(@Param("news") News news);
 
     @Select("select * from news order by id desc")
-    public List<News> findAllNews();
+     List<News> findAllNews();
 
     @Select("select * from news where id = #{id}")
     News findNewsById(int id);
+
+    @Update("update news set  commentCount = #{commentCount} where id = #{id}")
+    int updateNewsCommentCount(@Param("commentCount") Integer commentCount, @Param("id") String id);
+
+    @Update("update news set  likeCount = #{likeCount} where id = #{newsId}")
+    int updateNewsLikeCount(@Param("newsId")Integer newsId,@Param("likeCount") int likeCount);
+
 }

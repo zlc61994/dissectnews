@@ -1,10 +1,21 @@
 package com.zlc.dissectnews.bean;
 
+import java.util.Date;
+
 public class Comment {
     Integer id;
     String content;
     Integer userId;
     Integer newsId;
+    Date createdDate;
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
 
     public Integer getId() {
         return id;
